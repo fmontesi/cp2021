@@ -1,6 +1,6 @@
 package cp;
 
-import cp.lettercounter.LetterCounter;
+import cp.streams.StreamingFiles;
 
 /**
  * Main class (entry point) of the Java Application.
@@ -12,6 +12,8 @@ public final class App {
 	 * @param args The arguments of the program.
 	 */
 	public static void main( String[] args ) {
-		LetterCounter.main();
+		// Greetings.main();
+		// StreamOperations.main();
+		StreamingFiles.main();
 	}
 }
