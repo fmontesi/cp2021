@@ -1,7 +1,6 @@
 package cp;
 
-import cp.threads.SequentialMap2F;
-import cp.threads.SynchronizedMap2T;
+import cp.threads.SynchronizedMap2TWords;
 
 /**
  * Main class (entry point) of the Java Application.
@@ -16,6 +15,7 @@ public final class App {
 		// FirstThread.main();
 		// Counting.main();
 		// Utils.doAndMeasure( SequentialMap2F::main );
-		Utils.doAndMeasure( SynchronizedMap2T::main );
+		// Utils.doAndMeasure( SynchronizedMap2T::main );
+		SynchronizedMap2TWords.main();
 	}
 }

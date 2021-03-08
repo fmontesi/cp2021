@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
+// This is the example developed in the video 13-SynchronizedMap2T
 public class SynchronizedMap2T {
 	public static void main() {
 		Map< Character, Long > occurrences = new HashMap<>();
