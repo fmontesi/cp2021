@@ -37,35 +37,6 @@ public class Exam {
 				System.out.println(
 						"Available commands: help, shortestWord, longestWord, wordStartingWith, or findWord.\nFor example, try:\n\tjava Exam shortestWord data");
 				break;
-			case "shortestWord":
-				checkArguments(args.length == 2, "Usage: java Exam.java shortestWord <directory>");
-				String shortestWord = shortestWord(Paths.get(args[1]));
-				System.out.println("The shortest word found is " + shortestWord);
-				break;
-			case "longestWord":
-				checkArguments(args.length == 2, "Usage: java Exam.java longestWord <directory>");
-				String longestWord = longestWord(Paths.get(args[1]));
-				System.out.println("The longest word found is " + longestWord);
-				break;
-			case "wordStartingWith":
-				checkArguments(args.length == 4,
-						"Usage: java Exam.java wordStartingWith <directory> <prefix> <true|false>");
-				Optional<LocatedWord> locatedWordOptional = wordStartingWith(Paths.get(args[1]), args[2],
-						Boolean.parseBoolean(args[3]));
-				locatedWordOptional.ifPresentOrElse(
-						locatedWord -> System.out.println("Found " + locatedWord.word + " in " + locatedWord.filepath),
-						() -> System.out.println("No match found"));
-				break;
-			case "findWord":
-				checkArguments(args.length == 4, "Usage: java Exam.java findWord <directory> <word> <limit>");
-				int limit = Integer.parseInt(args[3]);
-				List<WordLocation> locations = findWord(Paths.get(args[1]), args[2], limit);
-				if (locations.size() > limit) {
-					throw new InternalException("Returned list size exceeds limit");
-				}
-				System.out.println("Found " + locations.size() + " matches");
-				locations.forEach(location -> System.out.println(location.filepath + ":" + location.line));
-				break;
 			case "findUniqueWords":
 				checkArguments(args.length == 2, "Usage: java Exam.java findUniqueWords <directory>");
 				List<LocatedWord> uniqueWords = findUniqueWords(Paths.get(args[1]));
