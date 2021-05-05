@@ -31,11 +31,11 @@ public class Exam {
 	// Do not change this method
 	public static void main(String[] args) {
 		checkArguments(args.length > 0,
-				"You must choose a command: help, shortestWord, longestWord, wordStartingWith, or findWord.");
+				"You must choose a command: help, findUniqueWords, findCommonWords, or wordLongerThan.");
 		switch (args[0]) {
 			case "help":
 				System.out.println(
-						"Available commands: help, shortestWord, longestWord, wordStartingWith, or findWord.\nFor example, try:\n\tjava Exam shortestWord data");
+						"Available commands: help, findUniqueWords, findCommonWords, or wordLongerThan.\nFor example, try:\n\tjava Exam findUniqueWords data");
 				break;
 			case "findUniqueWords":
 				checkArguments(args.length == 2, "Usage: java Exam.java findUniqueWords <directory>");
@@ -51,7 +51,7 @@ public class Exam {
 				break;
 			case "wordLongerThan":
 				checkArguments(args.length == 3, "Usage: java Exam.java wordLongerThan <directory> <length>");
-				int length = Integer.parseInt(args[3]);
+				int length = Integer.parseInt(args[2]);
 				Optional<LocatedWord> longerWordOptional = wordLongerThan(Paths.get(args[1]), length);
 				longerWordOptional.ifPresentOrElse(
 						locatedWord -> System.out.println("Found " + locatedWord.word + " in " + locatedWord.filepath),
